@@ -1,0 +1,26 @@
+# 部署配置文件示例
+# 复制此文件为 deploy.config 并修改配置
+# 注意：deploy.config 文件包含敏感信息，请勿提交到版本控制系统
+
+# 服务器配置
+SERVER_HOST="192.168.1.100"  # 服务器 IP 地址或域名
+SERVER_USER="root"            # SSH 登录用户名
+SERVER_PORT="22"              # SSH 端口号
+SERVER_PATH="/usr/local/bin/new-api"  # 服务器上二进制文件的路径
+
+# systemd 服务名称
+SERVICE_NAME="new-api"
+
+# SSH 认证配置（二选一，推荐使用 SSH 密钥）
+# 方式1: 使用 SSH 密钥（推荐，更安全）
+# 如果设置了 SSH_KEY_PATH，将使用密钥认证，忽略密码配置
+SSH_KEY_PATH=""  # SSH 私钥路径，例如: ~/.ssh/id_rsa 或 /path/to/private_key
+
+# 方式2: 使用密码认证（需要安装 sshpass）
+# 如果未设置 SSH_KEY_PATH，将使用密码认证
+SERVER_PASSWORD=""  # 服务器密码（如果使用密码认证）
+
+# 部署选项
+# 是否自动更新系统（yum update/apt update），设为 false 可加快部署速度
+AUTO_UPDATE_SYSTEM=true
+
